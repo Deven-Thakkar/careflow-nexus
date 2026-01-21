@@ -17,64 +17,57 @@ const navigate = useNavigate()
   return (
     <div className="min-h-screen bg-neutral-50 text-neutral-900">
       <header className="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between">
-        <div className="flex items-center gap-4">
-          <div className="w-11 h-11 rounded-xl bg-white/90 border border-neutral-200 flex items-center justify-center shadow-soft">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-primary">
-              <path d="M3 12h18M12 3v18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-            </svg>
-          </div>
-          <div>
-            <div className="text-lg font-semibold">Medcare.</div>
-            <div className="text-xs text-muted-foreground">Hospital Information System</div>
-          </div>
-        </div>
-        <nav className="hidden md:flex items-center gap-6 text-sm text-neutral-700">
-          <div className="md:hidden">
-            <button
-              onClick={() => navigate('/login')}
-              className="rounded-full px-4 py-2 bg-primary text-white"
-            >
-              Sign in
-            </button>
-          </div>
+  <div className="flex items-center gap-4">
+    <div className="w-11 h-11 rounded-xl bg-white/90 border border-neutral-200 flex items-center justify-center shadow-soft">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-primary">
+        <path d="M3 12h18M12 3v18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      </svg>
+    </div>
+    <div>
+      <div className="text-lg font-semibold">Medflow.</div>
+      <div className="text-xs text-muted-foreground">
+        Hospital Information System
+      </div>
+    </div>
+  </div>
 
-          <button
-            onClick={() => navigate('/doctors')}
-            className="px-3 py-1 rounded-full hover:bg-neutral-100"
-          >
-            Home
-          </button>
-          <button
-            onClick={() => navigate('/doctors')}
-            className="px-3 py-1 rounded-full hover:bg-neutral-100"
-          >
-            Services
-          </button>
-          <button
-            onClick={() => navigate('/doctors')}
-            className="px-3 py-1 rounded-full hover:bg-neutral-100"
-          >
-            Doctors
-          </button>
-          <button
-            onClick={() => navigate('/doctors')}
-            className="px-3 py-1 rounded-full hover:bg-neutral-100"
-          >
-            Contact
-          </button>
-          <button
-            onClick={() => navigate('/login')}
-            className="rounded-full px-4 py-2 bg-primary text-white"
-          >
-            Sign in
-          </button>
-        </nav>
-      </header>
+  {/* Desktop nav */}
+  <nav className="hidden md:flex items-center gap-6 text-sm text-neutral-700">
+    <button className="px-3 py-1 rounded-full hover:bg-neutral-100">
+      Home
+    </button>
+    <button className="px-3 py-1 rounded-full hover:bg-neutral-100">
+      Services
+    </button>
+    <button className="px-3 py-1 rounded-full hover:bg-neutral-100">
+      Doctors
+    </button>
+    <button className="px-3 py-1 rounded-full hover:bg-neutral-100">
+      Contact
+    </button>
+
+    <button
+      onClick={() => navigate('/login', { state: { role: 'doctor' } })}
+      className="rounded-full px-4 py-2 bg-primary text-white"
+    >
+      Staff Login
+    </button>
+  </nav>
+
+  {/* Mobile login button */}
+  <button
+    onClick={() => navigate('/login', { state: { role: 'doctor' } })}
+    className="md:hidden rounded-full px-4 py-2 bg-primary text-white"
+  >
+    Staff Login
+  </button>
+</header>
+
 
       <main className="max-w-7xl mx-auto px-6 pb-20">
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-6 flex flex-col gap-6">
-            <div className="text-sm font-medium tracking-wide text-primary">WELCOME TO MEDCARE</div>
+            <div className="text-sm font-medium tracking-wide text-primary">WELCOME TO MEDFLOW</div>
             <h1 className="text-4xl md:text-5xl font-serif leading-tight">
               Stay Safe, <span className="text-primary">Stay Healthy</span>
             </h1>
@@ -87,7 +80,7 @@ const navigate = useNavigate()
                   onClick={() => navigate('/contact')}
                   className="inline-flex items-center gap-2 rounded-full bg-primary text-white px-6 py-3 shadow-lift"
                 >
-                Contact Us
+                Get in touch
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
               </button>
               <button

@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useLocation } from "react-router-dom"  
 import { useNavigate } from "react-router-dom"
 import { useAuth, UserRole, roleNames } from "@/context/AuthContext"
 import { Stethoscope, Users, Shield } from "lucide-react"
@@ -19,7 +20,9 @@ const roles: UserRole[] = [
 const Login = () => {
   const { login } = useAuth()
   const navigate = useNavigate()
-  const [selectedRole, setSelectedRole] = useState<UserRole>("doctor")
+    const location = useLocation()
+    const defaultRole = (location.state as { role?: UserRole })?.role ?? "doctor"
+    const [selectedRole, setSelectedRole] = useState<UserRole>(defaultRole)
 
   const handleLogin = () => {
     login(selectedRole)
@@ -37,7 +40,7 @@ const Login = () => {
           </div>
 
           <h2 className="text-3xl font-semibold text-foreground mb-3">
-            Welcome to Medcare
+            Welcome to Medflow
           </h2>
 
           <p className="text-muted-foreground leading-relaxed">
@@ -56,12 +59,13 @@ const Login = () => {
                 <Users className="w-5 h-5 text-primary" />
               </div>
               <div>
-                <h1 className="text-lg font-semibold">Login</h1>
+                <h1 className="text-lg font-semibold">Sign in to Medflow</h1>
                 <p className="text-xs text-muted-foreground">
-                  Select your role to continue
+                    Access your hospital workspace
                 </p>
-              </div>
             </div>
+            </div>
+
 
             {/* Role selector */}
             <div className="space-y-3 mb-6">
@@ -95,9 +99,6 @@ const Login = () => {
               Login as {roleNames[selectedRole]}
             </Button>
 
-            <p className="text-center text-xs text-muted-foreground mt-6">
-              Demo mode • No credentials required
-            </p>
           </div>
         </div>
       </div>
