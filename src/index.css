@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,44 +6,44 @@
 
 @layer base {
   :root {
-    /* Hospital Primary - Medical Blue */
-    --primary: 210 100% 40%;
+    /* Modern Medical Teal - Inspired by Medpolis */
+    --primary: 187 72% 50%;
     --primary-foreground: 0 0% 100%;
 
-    /* Background & Foreground */
-    --background: 210 20% 98%;
-    --foreground: 222 47% 11%;
+    /* Clean White Background */
+    --background: 0 0% 100%;
+    --foreground: 220 20% 20%;
 
-    /* Cards & Surfaces */
+    /* Cards & Surfaces - Soft shadows */
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card-foreground: 220 20% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover-foreground: 220 20% 20%;
 
-    /* Secondary - Slate Gray */
-    --secondary: 215 20% 95%;
-    --secondary-foreground: 222 47% 11%;
+    /* Secondary - Soft Teal Tint */
+    --secondary: 187 30% 96%;
+    --secondary-foreground: 187 72% 35%;
 
-    /* Muted */
-    --muted: 215 20% 95%;
-    --muted-foreground: 215 16% 47%;
+    /* Muted - Soft Gray */
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 10% 50%;
 
-    /* Accent */
-    --accent: 210 100% 95%;
-    --accent-foreground: 210 100% 30%;
+    /* Accent - Light Teal */
+    --accent: 187 50% 94%;
+    --accent-foreground: 187 72% 35%;
 
     /* Destructive - Medical Red */
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    /* Border & Input */
-    --border: 215 20% 88%;
-    --input: 215 20% 88%;
-    --ring: 210 100% 40%;
+    /* Border & Input - Subtle */
+    --border: 220 14% 90%;
+    --input: 220 14% 90%;
+    --ring: 187 72% 50%;
 
     /* Chart Colors */
-    --chart-1: 210 100% 45%;
+    --chart-1: 187 72% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 45 93% 47%;
     --chart-4: 280 60% 50%;
@@ -56,40 +56,40 @@
     --status-warning: 45 93% 47%;
     --status-warning-foreground: 0 0% 10%;
     
-    --status-success: 142 76% 36%;
+    --status-success: 160 70% 42%;
     --status-success-foreground: 0 0% 100%;
     
-    --status-info: 210 100% 50%;
+    --status-info: 187 72% 50%;
     --status-info-foreground: 0 0% 100%;
     
-    --status-pending: 280 60% 50%;
+    --status-pending: 270 60% 55%;
     --status-pending-foreground: 0 0% 100%;
 
     /* Triage Colors (Emergency) */
     --triage-immediate: 0 84% 50%;
     --triage-urgent: 30 100% 50%;
     --triage-delayed: 45 100% 51%;
-    --triage-minor: 142 76% 36%;
+    --triage-minor: 160 70% 42%;
     --triage-deceased: 0 0% 30%;
 
     /* Bed Status */
-    --bed-available: 142 76% 36%;
-    --bed-occupied: 210 100% 45%;
+    --bed-available: 160 70% 42%;
+    --bed-occupied: 187 72% 50%;
     --bed-reserved: 45 93% 47%;
     --bed-cleaning: 0 84% 60%;
     --bed-maintenance: 0 0% 50%;
 
-    /* Sidebar */
-    --sidebar-background: 222 47% 11%;
-    --sidebar-foreground: 0 0% 100%;
-    --sidebar-primary: 210 100% 50%;
+    /* Modern Light Sidebar */
+    --sidebar-background: 220 20% 18%;
+    --sidebar-foreground: 220 14% 95%;
+    --sidebar-primary: 187 72% 50%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 222 47% 18%;
+    --sidebar-accent: 220 20% 25%;
     --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 222 47% 18%;
-    --sidebar-ring: 210 100% 50%;
+    --sidebar-border: 220 20% 25%;
+    --sidebar-ring: 187 72% 50%;
 
-    --radius: 0.5rem;
+    --radius: 1rem;
   }
 
   .dark {
@@ -102,7 +102,7 @@
     --popover: 222 47% 11%;
     --popover-foreground: 210 20% 98%;
 
-    --primary: 210 100% 50%;
+    --primary: 187 72% 50%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 222 47% 18%;
@@ -112,14 +112,14 @@
     --muted-foreground: 215 20% 65%;
 
     --accent: 222 47% 18%;
-    --accent-foreground: 210 100% 70%;
+    --accent-foreground: 187 72% 60%;
 
     --destructive: 0 62% 50%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 222 47% 18%;
     --input: 222 47% 18%;
-    --ring: 210 100% 50%;
+    --ring: 187 72% 50%;
   }
 }
 
@@ -128,31 +128,50 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
     font-family: 'Inter', system-ui, sans-serif;
+  }
+  h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
   }
 }
 
 /* Hospital-specific utility classes */
 @layer components {
   .hospital-card {
-    @apply bg-card rounded-lg border shadow-sm p-4;
+    @apply bg-card rounded-2xl border border-border/50 shadow-sm hover:shadow-lg transition-all duration-300 p-6;
+  }
+  
+  .floating-card {
+    @apply bg-card rounded-2xl border-0 shadow-[0_8px_30px_rgb(0,0,0,0.06)] p-6 transition-all duration-300 hover:shadow-[0_8px_40px_rgb(0,0,0,0.1)] hover:-translate-y-0.5;
+  }
+  
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md rounded-2xl border border-white/50 shadow-lg p-6;
   }
   
   .status-badge {
-    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold tracking-wide;
+  }
+  
+  .pill-badge {
+    @apply inline-flex items-center px-4 py-1.5 rounded-full text-sm font-medium bg-secondary text-secondary-foreground;
   }
   
   .triage-badge {
-    @apply inline-flex items-center justify-center w-8 h-8 rounded-full text-white font-bold text-sm;
+    @apply inline-flex items-center justify-center w-10 h-10 rounded-full text-white font-bold text-sm shadow-lg;
   }
   
   .module-header {
-    @apply text-2xl font-bold text-foreground mb-6;
+    @apply text-3xl font-semibold text-foreground mb-6 tracking-tight;
+  }
+  
+  .section-title {
+    @apply text-sm font-semibold text-muted-foreground uppercase tracking-widest mb-4;
   }
   
   .form-section {
-    @apply bg-card rounded-lg border p-6 space-y-4;
+    @apply bg-card rounded-2xl border border-border/50 p-8 space-y-6 shadow-sm;
   }
   
   .data-table {
@@ -160,48 +179,110 @@
   }
   
   .data-table th {
-    @apply text-left p-3 bg-muted font-semibold text-sm text-muted-foreground border-b;
+    @apply text-left p-4 bg-muted/50 font-semibold text-xs uppercase tracking-wider text-muted-foreground border-b;
   }
   
   .data-table td {
-    @apply p-3 border-b text-sm;
+    @apply p-4 border-b border-border/50 text-sm;
   }
   
   .data-table tr:hover {
-    @apply bg-muted/50;
+    @apply bg-accent/30;
   }
   
   .kpi-card {
-    @apply bg-card rounded-xl border p-6 shadow-sm;
+    @apply bg-card rounded-2xl border-0 p-6 shadow-[0_4px_20px_rgb(0,0,0,0.05)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all duration-300;
   }
   
   .nav-item {
-    @apply flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors;
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200;
   }
   
   .nav-item-active {
-    @apply bg-sidebar-accent text-sidebar-accent-foreground;
+    @apply bg-sidebar-primary text-sidebar-primary-foreground shadow-lg shadow-primary/25;
   }
   
   .nav-item:hover:not(.nav-item-active) {
-    @apply bg-sidebar-accent/50;
+    @apply bg-sidebar-accent/70;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent;
+  }
+  
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    @apply text-5xl md:text-6xl font-semibold tracking-tight leading-tight;
+  }
+  
+  .accent-dot {
+    @apply inline-block w-2 h-2 rounded-full bg-primary ml-1;
+  }
+}
+
+/* Modern Pill Tabs */
+@layer components {
+  .pill-tabs {
+    @apply inline-flex items-center gap-1 p-1.5 bg-muted/50 rounded-full;
+  }
+  
+  .pill-tab {
+    @apply px-5 py-2 rounded-full text-sm font-medium text-muted-foreground transition-all duration-200;
+  }
+  
+  .pill-tab-active {
+    @apply bg-primary text-primary-foreground shadow-md;
+  }
+  
+  .pill-tab:hover:not(.pill-tab-active) {
+    @apply text-foreground bg-white/50;
+  }
+}
+
+/* Elegant Input Styling */
+@layer components {
+  .elegant-input {
+    @apply w-full px-4 py-3 rounded-xl border border-border/50 bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200 text-sm;
+  }
+  
+  .elegant-select {
+    @apply w-full px-4 py-3 rounded-xl border border-border/50 bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200 text-sm appearance-none;
   }
 }
 
 /* Scrollbar styling */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-muted/50;
+  @apply bg-transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-muted-foreground/30 rounded-full;
+  @apply bg-muted-foreground/20 rounded-full;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-muted-foreground/50;
+  @apply bg-muted-foreground/30;
+}
+
+/* Smooth animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
 }
