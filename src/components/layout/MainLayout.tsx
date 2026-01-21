@@ -1,20 +1,24 @@
-import React from 'react';
-import Sidebar from './Sidebar';
-import Navbar from './Navbar';
-import AnimatedOutlet from './AnimatedOutlet';
+import React, { Suspense } from 'react'
+import Navbar from './Navbar'
+import AnimatedOutlet from './AnimatedOutlet'
 
-const MainLayout: React.FC = () => {
+const Sidebar = React.lazy(() => import('@/components/layout/Sidebar'))
+
+function MainLayout() {
   return (
-    <div className="flex min-h-screen bg-muted/30">
-      <Sidebar />
-      <div className="flex-1 flex flex-col min-h-screen">
+    <div className="flex min-h-screen bg-neutral-50 text-neutral-900">
+      <Suspense fallback={<div className="w-64 p-6">Loading menu…</div>}>
+        <Sidebar />
+      </Suspense>
+
+      <div className="flex-1 flex flex-col">
         <Navbar />
         <main className="flex-1 p-6 lg:p-8 overflow-auto">
           <AnimatedOutlet />
         </main>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default MainLayout;
+export default MainLayout

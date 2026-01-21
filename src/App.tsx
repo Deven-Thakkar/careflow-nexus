@@ -1,10 +1,11 @@
+import Landing from "./pages/Landing";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider, useAuth } from "@/context/AuthContext";
-import Login from "./pages/Login";
+import Login from "./pages/Landing";
 import Dashboard from "./pages/Dashboard";
 import MainLayout from "./components/layout/MainLayout";
 import NotFound from "./pages/NotFound";
@@ -22,10 +23,33 @@ const AppRoutes = () => {
 
   return (
     <Routes>
-      <Route path="/login" element={isAuthenticated ? <Navigate to="/dashboard" replace /> : <Login />} />
-      <Route path="/" element={<Navigate to={isAuthenticated ? "/dashboard" : "/login"} replace />} />
-      
-      <Route element={<ProtectedRoute><MainLayout /></ProtectedRoute>}>
+      {/* ---------- PUBLIC ROUTES ---------- */}
+      <Route
+        path="/"
+        element={
+          isAuthenticated
+            ? <Navigate to="/dashboard" replace />
+            : <Landing />
+        }
+      />
+
+      <Route
+        path="/login"
+        element={
+          isAuthenticated
+            ? <Navigate to="/dashboard" replace />
+            : <Login />
+        }
+      />
+
+      {/* ---------- PROTECTED APP ROUTES ---------- */}
+      <Route
+        element={
+          <ProtectedRoute>
+            <MainLayout />
+          </ProtectedRoute>
+        }
+      >
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/registration" element={<Dashboard />} />
         <Route path="/patients" element={<Dashboard />} />
@@ -40,16 +64,18 @@ const AppRoutes = () => {
         <Route path="/ot" element={<Dashboard />} />
         <Route path="/billing" element={<Dashboard />} />
         <Route path="/insurance" element={<Dashboard />} />
-        <Route path="/incidents" element={<Dashboard />} />
         <Route path="/resources" element={<Dashboard />} />
         <Route path="/audit" element={<Dashboard />} />
         <Route path="/management" element={<Dashboard />} />
       </Route>
 
+      {/* ---------- FALLBACK ---------- */}
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };
+
+
 
 const App = () => (
   <QueryClientProvider client={queryClient}>

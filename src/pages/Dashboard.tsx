@@ -16,7 +16,7 @@ const Dashboard: React.FC = () => {
       title: 'Bed Occupancy', 
       value: `${kpiData.bedOccupancy}%`, 
       icon: Bed, 
-      color: 'from-primary to-teal-600',
+      color: 'from-primary/80 to-teal-600/80',
       bgColor: 'bg-primary/10',
       change: '+2.5%',
       positive: true
@@ -67,14 +67,13 @@ const Dashboard: React.FC = () => {
   return (
     <div className="space-y-8 animate-fade-in">
       {/* Welcome Header */}
-      <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
         <div>
-          <p className="section-title">Dashboard</p>
-          <h1 className="hero-title text-3xl md:text-4xl text-foreground">
-            Welcome back<span className="accent-dot"></span>
+          <h1 className="text-xl font-semibold tracking-tight">
+            Dashboard
           </h1>
-          <p className="text-muted-foreground mt-2">
-            Here's what's happening at the hospital today
+          <p className="text-sm text-neutral-500 mt-1">
+            Welcome back. Here’s what’s happening today.
           </p>
         </div>
         
@@ -95,12 +94,12 @@ const Dashboard: React.FC = () => {
         {stats.map((stat, index) => (
           <div 
             key={stat.title} 
-            className="floating-card group cursor-pointer"
+            className="floating-card group cursor-pointer hover:shadow-lift transition-shadow"
             style={{ animationDelay: `${index * 100}ms` }}
           >
             <div className="flex items-start justify-between mb-4">
               <div className={cn(
-                "w-12 h-12 rounded-xl bg-gradient-to-br flex items-center justify-center text-white shadow-lg transition-transform group-hover:scale-110",
+                "w-12 h-12 rounded-xl bg-gradient-to-br flex items-center justify-center text-white shadow-lg transition-transform group-hover:scale-105",
                 stat.color
               )}>
                 <stat.icon className="w-6 h-6" />
@@ -123,7 +122,7 @@ const Dashboard: React.FC = () => {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {secondaryStats.map((stat) => (
           <div key={stat.title} className="kpi-card flex items-center gap-4">
-            <div className={cn("w-10 h-10 rounded-xl bg-muted flex items-center justify-center", stat.color)}>
+            <div className={cn("w-10 h-10 rounded-xl bg-neutral-100 flex items-center justify-center", stat.color)}>
               <stat.icon className="w-5 h-5" />
             </div>
             <div>
@@ -207,7 +206,7 @@ const Dashboard: React.FC = () => {
             {quickActions.map((action) => (
               <button
                 key={action.title}
-                className="flex flex-col items-center justify-center p-4 rounded-xl bg-muted/50 hover:bg-accent transition-colors group"
+                className="flex flex-col items-center justify-center p-4 rounded-xl bg-neutral-100/50 hover:bg-neutral-200 transition-colors group"
               >
                 <action.icon className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors mb-2" />
                 <span className="text-xs font-medium text-foreground">{action.title}</span>
