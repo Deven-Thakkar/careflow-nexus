@@ -1,7 +1,7 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import Navbar from './Navbar';
+import AnimatedOutlet from './AnimatedOutlet';
 
 const MainLayout: React.FC = () => {
   return (
@@ -10,7 +10,7 @@ const MainLayout: React.FC = () => {
       <div className="flex-1 flex flex-col min-h-screen">
         <Navbar />
         <main className="flex-1 p-6 lg:p-8 overflow-auto">
-          <Outlet />
+          <AnimatedOutlet />
         </main>
       </div>
     </div>
